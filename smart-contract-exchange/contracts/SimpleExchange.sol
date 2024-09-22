@@ -24,6 +24,20 @@ contract SimpleExchange {
     }
 
     // Function to create a trade offer
-    function createOffer(uint256 amount, uint256 price) public {}
+    function createOffer(uint256 amount, uint256 price) public {
+        require(balances[msg.sender] >= amount, "Insufficient balance to create an offer.");
+
+        // Create a new offer and add it to the offers array
+        offers.push(Offer({
+            trader: msg.sender,
+            amount: amount,
+            price: price,
+            isActive: true
+        }));
+
+        // Emit the offer creation event
+        emit OfferCreated(offers.length - 1, msg.sender, amount, price);
+    
+    }
 
 }
