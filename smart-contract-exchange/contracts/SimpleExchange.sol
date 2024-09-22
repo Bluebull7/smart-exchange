@@ -18,5 +18,12 @@ contract SimpleExchange {
     event OfferCreated(uint256 offerId, address trader, uint256 amount, uint256 price);
     event TradeExecuted(uint256 offerId, address buyer, uint256 amount);
 
+    // Function to deposit tokens into the contract (Simulated with Ether)
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    // Function to create a trade offer
+    function createOffer(uint256 amount, uint256 price) public {}
 
 }
