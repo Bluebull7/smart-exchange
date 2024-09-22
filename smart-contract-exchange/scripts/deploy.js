@@ -13,7 +13,7 @@ async function main() {
 
     console.log("SimpleExchange deployed to:", simpleExchange.address);
     await simpleExchange.deployed();
-});
+};
 it("Should create a new offer", async function () {
     // Deposit ether to simulate balance
     await simpleExchange.connect(owner).deposit({ value: ethers.utils.parseEther("1") });
