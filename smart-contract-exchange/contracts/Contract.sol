@@ -13,4 +13,10 @@ contract SimpleExchange {
     // State variables
     mapping(address => uint256) public balances;    // Balances of users
     Offer[] public offers;                          // Array of all offers
+
+    //Event Declarations
+    event OfferCreated(uint256 offerId, address trader, uint256 amount, uint256 price);
+    event TradeExecuted(uint256 offerId, address buyer, uint256 amount);
+
+
 }
