@@ -1,0 +1,19 @@
+{
+  "name": "smart-exchange",
+  "version": "1.0.0",
+  "description": "smart contract exchange simulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "solidity",
+    "smart",
+    "contract"
+  ],
+  "author": "Lance Henry",
+  "license": "ISC",
+  "devDependencies": {
+    "hardhat": "^2.22.11"
+  }
+}
