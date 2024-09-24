@@ -50,8 +50,12 @@ contract SimpleExchange {
         balances[offer.trader] -= offer.amount;
         balances[msg.sender] += offer.amount;
         payable(offer.trader).transfer(msg.value);
-        
-        
+
+        // Mark the offer as inactive
+        offer.isActive = false;
+
+        // Emit the trade execution event
+        emit TradeExecuted(offerId, msg.sender, offer.amount);        
     }
 
 }
