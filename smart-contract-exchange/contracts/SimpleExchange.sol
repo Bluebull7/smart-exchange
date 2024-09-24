@@ -40,4 +40,18 @@ contract SimpleExchange {
     
     }
 
+    // Function to execute a trade by matching an existing offer
+    function executeTrade(uint256 offerId) public payable {
+        Offer storage offer = offers[offerId];
+        require(offer.isActive, "Offer is no longer active.");
+        require(msg.value == offer.price * offer.amount, "Incorrect Ether amount sent for");
+        
+        // transfer tokens and Ether between buyer and seller
+        balances[offer.trader] -= offer.amount;
+        balances[msg.sender] += offer.amount;
+        payable(offer.trader).transfer(msg.value);
+        
+        
+    }
+
 }
